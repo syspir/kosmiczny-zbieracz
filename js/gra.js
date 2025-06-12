@@ -6,4 +6,14 @@ $("#przycisk-start").click(function() {
 });
 
 
+$("#przycisk-pokaz-wyniki").click(function() {
+    $("#ekran-startowy").hide();
+    $("#tablica-wynikow").show();
+});
+
+$("#przycisk-powrot").click(function() {    
+    $("#tablica-wynikow").hide();
+    $("#ekran-startowy").show();
+});
+
 
