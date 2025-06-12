@@ -1,10 +1,8 @@
 
 $("#przycisk-start").click(function() {
-
     $("#ekran-startowy").hide();
     $("#interfejs-gry").show();
 });
-
 
 $("#przycisk-pokaz-wyniki").click(function() {
     $("#ekran-startowy").hide();
