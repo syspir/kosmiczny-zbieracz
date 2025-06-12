@@ -1,0 +1,90 @@
+/* Plik: css/style.css */
+
+body {
+    /* Tworzymy subtelne tło przypominające kosmos za pomocą gradientów */
+    background-color: #0c0a18; /* Głęboki, ciemny fiolet */
+    background-image:
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    
+    /* Dodajemy powolną animację, aby gwiazdy "płynęły" w tle */
+    animation: move-stars 200s linear infinite;
+}
+
+/* Definicja animacji poruszających się gwiazd */
+@keyframes move-stars {
+    from {
+        background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    }
+    to {
+        /* Przesuwamy tła o dużą wartość, aby stworzyć iluzję nieskończonego ruchu */
+        background-position: -10000px 5000px, -10000px 5000px, -10000px 5000px, -10000px 5000px;
+    }
+}
+
+/* Styl dla płótna gry, aby lepiej się wyróżniało */
+#poleGry {
+    /* Dodajemy fioletowy cień, aby pasował do obramowania zdefiniowanego w HTML */
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.4);
+    
+    /* Ukrywamy kursor systemowy nad polem gry. Nasz statek będzie jedynym wskaźnikiem. */
+    cursor: none;
+}
+
+/* Poprawiamy wygląd przycisków i pól input dla spójności */
+button, input[type="text"] {
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Dodajemy efekt lekkiego powiększenia po najechaniu na przycisk */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Dodajemy efekt wciśnięcia przycisku */
+button:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+}
+
+/* Animacja pulsowania dla głównego tytułu, aby przyciągnąć uwagę */
+#ekran-startowy h1 {
+    animation: pulsate-text 2.5s infinite ease-in-out;
+}
+
+@keyframes pulsate-text {
+    0% {
+        text-shadow: 0 0 5px #fde047, 0 0 10px #fde047;
+    }
+    50% {
+        text-shadow: 0 0 20px #facc15, 0 0 35px #facc15;
+    }
+    100% {
+        text-shadow: 0 0 5px #fde047, 0 0 10px #fde047;
+    }
+}
+
+/* Styl dla pojedynczego wpisu na liście wyników */
+.wynik-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6; /* Niebieski akcent */
+    transition: background-color 0.2s;
+}
+
+/* Wyróżnienie nieparzystych wierszy dla lepszej czytelności */
+.wynik-item:nth-child(odd) {
+     background-color: rgba(255, 255, 255, 0.08);
+}
+
+.wynik-item:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+}
